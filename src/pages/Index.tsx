@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -44,8 +45,25 @@ const Index = () => {
   const galleryImages = [
     "https://cdn.poehali.dev/projects/18fd7270-8ab1-4b64-b748-635867cc95ca/files/6105e625-bfe1-4ee0-8176-a370e5013acb.jpg",
     "https://cdn.poehali.dev/projects/18fd7270-8ab1-4b64-b748-635867cc95ca/files/d7954bd5-ffe5-4725-80ed-b8339c0a8e3b.jpg",
-    "https://cdn.poehali.dev/projects/18fd7270-8ab1-4b64-b748-635867cc95ca/files/e5e3173e-814f-47b0-9a64-6601693d9887.jpg"
+    "https://cdn.poehali.dev/projects/18fd7270-8ab1-4b64-b748-635867cc95ca/files/b2daff34-4769-427f-be53-5f5136aa4f75.jpg"
   ];
+
+  const handleYachtDelivery = () => {
+    toast({
+      title: "😄",
+      description: "Мы не повезём вам яхту домой",
+      duration: 3000,
+    });
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "😴",
+      description: "У нас выходной",
+      duration: 3000,
+    });
+  };
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -99,6 +117,9 @@ const Index = () => {
               <Button size="lg" variant="outline" onClick={() => scrollToSection('contact')} className="bg-white/10 border-white text-white hover:bg-white hover:text-primary hover-scale">
                 Забронировать место
               </Button>
+              <Button size="lg" onClick={handleYachtDelivery} className="bg-accent hover:bg-accent/90 hover-scale">
+                Заказать доставку яхты домой
+              </Button>
             </div>
           </div>
         </div>
@@ -112,11 +133,11 @@ const Index = () => {
               <p className="text-lg text-muted-foreground">минуты на рынке</p>
             </div>
             <div className="animate-scale-in" style={{ animationDelay: '100ms' }}>
-              <div className="text-5xl font-bold text-primary mb-2">999+</div>
+              <div className="text-5xl font-bold text-primary mb-2">Много</div>
               <p className="text-lg text-muted-foreground">довольных клиентов</p>
             </div>
             <div className="animate-scale-in" style={{ animationDelay: '200ms' }}>
-              <div className="text-5xl font-bold text-primary mb-2">24/7</div>
+              <div className="text-5xl font-bold text-primary mb-2">25/8</div>
               <p className="text-lg text-muted-foreground">охрана территории</p>
             </div>
           </div>
@@ -243,7 +264,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Icon name="Users" size={20} className="text-secondary" />
-                  <p>Банкеты до 150 человек</p>
+                  <p>Банкеты до 5 человек</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Icon name="Wine" size={20} className="text-secondary" />
@@ -292,9 +313,9 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-12">
               <Card className="p-8 animate-scale-in">
                 <h3 className="text-2xl font-semibold mb-6">Быстрая заявка</h3>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleFormSubmit}>
                   <Input placeholder="Ваш телефон" type="tel" className="text-lg" />
-                  <Button className="w-full" size="lg">Отправить заявку</Button>
+                  <Button type="submit" className="w-full" size="lg">Отправить заявку</Button>
                   <p className="text-sm text-muted-foreground text-center">Перезвоним в течение 5 минут</p>
                 </form>
               </Card>
@@ -306,7 +327,7 @@ const Index = () => {
                       <Icon name="MapPin" size={24} className="text-secondary mt-1" />
                       <div>
                         <p className="font-medium">Адрес</p>
-                        <p className="text-muted-foreground">Москва, Береговая набережная, 15</p>
+                        <p className="text-muted-foreground">Где-то у берега реки</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -327,7 +348,7 @@ const Index = () => {
                       <Icon name="Clock" size={24} className="text-secondary mt-1" />
                       <div>
                         <p className="font-medium">Режим работы</p>
-                        <p className="text-muted-foreground">Ежедневно с 8:00 до 22:00</p>
+                        <p className="text-muted-foreground">Пока солнце светит</p>
                       </div>
                     </div>
                   </div>
@@ -362,7 +383,7 @@ const Index = () => {
               <ul className="space-y-2 text-white/80">
                 <li>+7 (495) 123-45-67</li>
                 <li>Otmiv_deneg@neskam.com</li>
-                <li>Москва, Береговая набережная, 15</li>
+                <li>Где-то у берега реки</li>
               </ul>
             </div>
           </div>
