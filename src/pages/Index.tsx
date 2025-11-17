@@ -57,7 +57,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-border">
+      <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -65,10 +65,10 @@ const Index = () => {
               <span className="text-2xl font-bold text-primary">Черный Парус</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection('home')} className="story-link text-sm font-medium hover:text-primary transition-colors">Главная</button>
-              <button onClick={() => scrollToSection('services')} className="story-link text-sm font-medium hover:text-primary transition-colors">Услуги</button>
-              <button onClick={() => scrollToSection('gallery')} className="story-link text-sm font-medium hover:text-primary transition-colors">Галерея</button>
-              <button onClick={() => scrollToSection('contact')} className="story-link text-sm font-medium hover:text-primary transition-colors">Контакты</button>
+              <button onClick={() => scrollToSection('home')} className="story-link text-sm font-medium text-foreground hover:text-primary transition-colors">Главная</button>
+              <button onClick={() => scrollToSection('services')} className="story-link text-sm font-medium text-foreground hover:text-primary transition-colors">Услуги</button>
+              <button onClick={() => scrollToSection('gallery')} className="story-link text-sm font-medium text-foreground hover:text-primary transition-colors">Галерея</button>
+              <button onClick={() => scrollToSection('contact')} className="story-link text-sm font-medium text-foreground hover:text-primary transition-colors">Контакты</button>
             </div>
             <Button onClick={() => scrollToSection('contact')}>Связаться</Button>
           </div>
@@ -99,6 +99,25 @@ const Index = () => {
               <Button size="lg" variant="outline" onClick={() => scrollToSection('contact')} className="bg-white/10 border-white text-white hover:bg-white hover:text-primary hover-scale">
                 Забронировать место
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="animate-scale-in">
+              <div className="text-5xl font-bold text-primary mb-2">2+</div>
+              <p className="text-lg text-muted-foreground">минуты на рынке</p>
+            </div>
+            <div className="animate-scale-in" style={{ animationDelay: '100ms' }}>
+              <div className="text-5xl font-bold text-primary mb-2">999+</div>
+              <p className="text-lg text-muted-foreground">довольных клиентов</p>
+            </div>
+            <div className="animate-scale-in" style={{ animationDelay: '200ms' }}>
+              <div className="text-5xl font-bold text-primary mb-2">24/7</div>
+              <p className="text-lg text-muted-foreground">охрана территории</p>
             </div>
           </div>
         </div>
@@ -272,21 +291,11 @@ const Index = () => {
             </div>
             <div className="grid md:grid-cols-2 gap-12">
               <Card className="p-8 animate-scale-in">
-                <h3 className="text-2xl font-semibold mb-6">Отправить заявку</h3>
+                <h3 className="text-2xl font-semibold mb-6">Быстрая заявка</h3>
                 <form className="space-y-4">
-                  <div>
-                    <Input placeholder="Ваше имя" />
-                  </div>
-                  <div>
-                    <Input type="tel" placeholder="Телефон" />
-                  </div>
-                  <div>
-                    <Input type="email" placeholder="Email" />
-                  </div>
-                  <div>
-                    <Textarea placeholder="Ваше сообщение" rows={4} />
-                  </div>
-                  <Button className="w-full" size="lg">Отправить</Button>
+                  <Input placeholder="Ваш телефон" type="tel" className="text-lg" />
+                  <Button className="w-full" size="lg">Отправить заявку</Button>
+                  <p className="text-sm text-muted-foreground text-center">Перезвоним в течение 5 минут</p>
                 </form>
               </Card>
               <div className="space-y-6 animate-fade-in" style={{ animationDelay: '200ms' }}>
@@ -311,7 +320,7 @@ const Index = () => {
                       <Icon name="Mail" size={24} className="text-secondary mt-1" />
                       <div>
                         <p className="font-medium">Email</p>
-                        <p className="text-muted-foreground">info@blacksail-club.ru</p>
+                        <p className="text-muted-foreground">Otmiv_deneg@neskam.com</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -352,7 +361,7 @@ const Index = () => {
               <h4 className="font-semibold text-lg mb-4">Контакты</h4>
               <ul className="space-y-2 text-white/80">
                 <li>+7 (495) 123-45-67</li>
-                <li>info@blacksail-club.ru</li>
+                <li>Otmiv_deneg@neskam.com</li>
                 <li>Москва, Береговая набережная, 15</li>
               </ul>
             </div>
